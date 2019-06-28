@@ -13,11 +13,12 @@ class Bababot(discord.Client):
         await message.channel.send(
             '```Your Baba understands the following commands:\n\n'
 
-            '!info         Get to know your Baba\n'
-            '!ping         Ping your Baba\n'
-            '!joke         Listen to Baba\'s joke\n'
-            '!hot          Ask Baba to say "That\'s hot!"\n'
-            '!commands     Show this list of commands```'
+            '!info             Get to know your Baba\n'
+            '!ping             Ping your Baba\n'
+            '!joke             Listen to Baba\'s joke\n'
+            '!hot              Ask Baba to say "That\'s hot!"\n'
+            '!commands         Show this list of commands\n'
+            '!slap @username   Slap a fellow```'
         )
 
     async def on_ready(self):
@@ -53,3 +54,8 @@ class Bababot(discord.Client):
                 '*Send **!commands** in chat to see how to interact with '
                 'your Baba*'
             )
+
+        if (re.search('!slap', message.content.lower())):
+            await message.channel \
+                         .send('I won\'t allow you children to resort to'
+                               ' violence. You need to behave!')
