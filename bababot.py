@@ -66,6 +66,7 @@ class Bababot(discord.Client):
                                                         .replace(':', '')
                     
                     await message.channel.send(f'Haro {name}, I\'m Baba.')
+                    im_found = False
                     break
                     
                 if word.lower() == 'i\'m' or 'im':
