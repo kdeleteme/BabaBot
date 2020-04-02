@@ -55,19 +55,18 @@ class Bababot(discord.Client):
                 'your Baba*'
             )
 
-        if 'i\'m' in message.content.lower() \
-           or 'im' in message.content.lower():
+        if 'i\'m' or 'im' in message.content.lower():
             im_found = False
 
             for word in message.content.split(' '):
                 if im_found:
-                    im_found = False
                     name = word.title().replace('!', '').replace('.', '')\
                                                         .replace('?', '')\
                                                         .replace(';', '')\
                                                         .replace(':', '')
                     
                     await message.channel.send(f'Haro {name}, I\'m Baba.')
+                    break
                     
                 if word.lower() == 'i\'m' or 'im':
                     im_found = True
