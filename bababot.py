@@ -56,21 +56,27 @@ class Bababot(discord.Client):
             )
 
         if 'i\'m' in message.content.lower() \
-           or 'im' in message.content.lower():
-            im_found = False
+           or 'im' in message.content.lower() \
+           or 'i am' in message.content.lower():
 
-            for word in message.content.split(' '):
-                if im_found:
-                    name = word.title().replace('!', '').replace('.', '')\
-                                                        .replace('?', '')\
-                                                        .replace(';', '')\
-                                                        .replace(':', '')
-                    
-                    await message.channel.send(f'Haro {name}, I\'m Baba.')
+            im_index = -1
+
+            for index, word in enumerate(message.content.lower().split(' ')):
+                if word == 'i\'m' or word == 'im' or word == 'am':
+                    im_index = index
                     break
-                    
-                if word.lower() == 'i\'m' or 'im':
-                    im_found = True
+
+            if im_index >= 0:
+                accepted_message = message.content.split(' ')
+                noun = accepted_message[im_index + 1].title()\
+                                                    .replace('!', '')\
+                                                    .replace('.', '')\
+                                                    .replace('?', '')\
+                                                    .replace(';', '')\
+                                                    .replace(':', '')
+
+                await message.channel.send(f'Haro {noun}, I\'m Baba.')
+
                     
         if (re.search('!slap', message.content.lower())):
             await message.channel \
