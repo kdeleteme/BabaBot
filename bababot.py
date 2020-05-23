@@ -38,7 +38,7 @@ class Bababot(discord.Client):
             await message.channel.send('pong!')
 
         if (message.content == '!joke'):
-            await message.channel.send(await self.joke_fetcher.start())
+            await message.channel.send(await self.joke_fetcher.fetch())
 
         if (re.search('fortnite', message.content.lower())):
             await message.channel \

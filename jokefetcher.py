@@ -8,7 +8,7 @@ class JokeFetcher():
 
       URL = 'https://www.reddit.com/r/dadjokes/.json'
 
-      async def start(self):
+      async def fetch(self) -> str:
             
             req = request.Request(self.URL, headers = {
                   'User-Agent' : 'Bababot'
