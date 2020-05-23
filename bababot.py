@@ -25,10 +25,10 @@ class Bababot(discord.Client):
             '!slap @username   Slap a fellow```'
         )
 
-    async def on_ready(self):
+    async def on_ready(self) -> None:
         print('Logged on as {0}!'.format(self.user))
 
-    async def on_message(self, message):
+    async def on_message(self, message) -> None:
         print('{0.author}: {0.content}'.format(message))
 
         if (message.author == self.user):
