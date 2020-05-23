@@ -7,9 +7,13 @@ from jokefetcher import JokeFetcher
 class Bababot(discord.Client):
     """Your Asian dad bot"""
 
-    joke_fetcher = JokeFetcher()
+    joke_fetcher: JokeFetcher
 
-    async def print_commands(self, message):
+    def __init__(self):
+        super().__init__()
+        self.joke_fetcher = JokeFetcher()
+
+    async def print_commands(self, message) -> None:
         await message.channel.send(
             '```Your Baba understands the following commands:\n\n'
 
