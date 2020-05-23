@@ -15,6 +15,9 @@ class JokeFetcher():
             with request.urlopen(req) as url:
                   data = json.loads(url.read().decode())
                   jokes = data['data']['children']
+
+                  random.seed(a = None, version = 2)
+
                   roll = random.randint(0, len(jokes) - 1)
                   return '**{0} {1}**\n\n*u/{2}*'.format(
                         jokes[roll]['data']['title'],
