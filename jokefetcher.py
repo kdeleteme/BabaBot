@@ -10,9 +10,7 @@ class JokeFetcher():
 
       async def fetch(self) -> str:
             
-            req = request.Request(self.URL, headers = {
-                  'User-Agent' : 'Bababot'
-            })
+            req = request.Request(self.URL)
             
             with request.urlopen(req) as url:
                   data = json.loads(url.read().decode())
