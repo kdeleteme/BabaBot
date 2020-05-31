@@ -9,9 +9,9 @@ class Bababot(discord.Client):
 
     joke_fetcher: JokeFetcher
 
-    def __init__(self):
+    def __init__(self, joke_fetcher: JokeFetcher):
         super().__init__()
-        self.joke_fetcher = JokeFetcher()
+        self.joke_fetcher = joke_fetcher
 
     async def print_commands(self, message) -> None:
         await message.channel.send(
@@ -80,7 +80,6 @@ class Bababot(discord.Client):
                                                     .replace(':', '')
 
                 await message.channel.send(f'Haro {noun}, I\'m Baba.')
-
                     
         if (re.search('!slap', message.content.lower())):
             await message.channel \
