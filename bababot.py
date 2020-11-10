@@ -29,7 +29,7 @@ class Bababot(discord.Client):
         print('Logged on as {0}!'.format(self.user))
 
     async def on_message(self, message) -> None:
-        print('{0.author}: {0.content}'.format(message))
+        # print('{0.author}: {0.content}'.format(message))
 
         if (message.author == self.user):
             return
