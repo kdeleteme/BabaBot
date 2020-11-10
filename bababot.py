@@ -72,13 +72,16 @@ class Bababot(discord.Client):
 
             if im_index >= 0:
                 accepted_message = message.content.split(' ')
-                noun = accepted_message[im_index + 1].title()\
-                                                    .replace('!', '')\
-                                                    .replace('.', '')\
-                                                    .replace('?', '')\
-                                                    .replace(';', '')\
-                                                    .replace(':', '')
 
+                noun_array = []
+                for index, word in enumerate(message.content.split(' ')):
+                    if index > im_index:
+                        noun_array += [word.replace('.', '')]
+
+                        if word[-1] == '.':
+                            break
+
+                noun = ' '.join(noun_array)
                 await message.channel.send(f'Haro {noun}, I\'m Baba.')
                     
         if (re.search('!slap', message.content.lower())):
