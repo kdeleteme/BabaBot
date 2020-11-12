@@ -56,7 +56,9 @@ class Bababot(discord.Client):
                 'You will listen to me. '
                 'Disappoint me and I will disown you.\n\n'
                 '*Send **!commands** in chat to see how to interact with '
-                'your Baba*'
+                'your Baba*\n\n'
+                'I was built by kdeleteme. You can find my brain at'
+                ' https://gitlab.com/kdeleteme/bababot.'
             )
 
         if 'i\'m' in message.content.lower() \
