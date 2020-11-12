@@ -1,7 +1,7 @@
 import discord
 import re
 
-from jokefetcher import JokeFetcher
+from bababot.jokefetcher import JokeFetcher
 
 
 class Bababot(discord.Client):

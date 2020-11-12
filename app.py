@@ -1,7 +1,7 @@
 import os
 
-from bababot import Bababot
-from jokefetcher import JokeFetcher
+from bababot.bababot import Bababot
+from bababot.jokefetcher import JokeFetcher
 
 def main():
     joke_fetcher = JokeFetcher()
