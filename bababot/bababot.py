@@ -1,5 +1,4 @@
 import discord
-import re
 
 from bababot.jokefetcher import JokeFetcher
 
@@ -86,7 +85,7 @@ class Bababot(discord.Client):
                 noun = ' '.join(noun_array)
                 await message.channel.send(f'Haro {noun}, I\'m Baba.')
                     
-        if (re.search('!slap', message.content.lower())):
+        if ('!slap' in message.content.lower()):
             await message.channel \
                          .send('I won\'t allow you children to resort to'
                                ' violence. You need to behave!')
