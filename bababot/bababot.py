@@ -1,16 +1,19 @@
 import discord
 
 from bababot.jokefetcher import JokeFetcher
+from bababot.sussifier import Sussifier
 
 
 class Bababot(discord.Client):
     """Your Asian dad bot"""
 
     joke_fetcher: JokeFetcher
+    sussifier: Sussifier
 
-    def __init__(self, joke_fetcher: JokeFetcher):
+    def __init__(self, joke_fetcher: JokeFetcher, sussifier: Sussifier):
         super().__init__()
         self.joke_fetcher = joke_fetcher
+        self.sussifier = sussifier
 
     async def print_commands(self, message) -> None:
         await message.channel.send(
@@ -21,6 +24,7 @@ class Bababot(discord.Client):
             '!joke             Listen to Baba\'s joke\n'
             '!hot              Ask Baba to say "That\'s hot!"\n'
             '!commands         Show this list of commands\n'
+            '!sus @username    Sus a crewmate\n'
             '!slap @username   Slap a fellow```'
         )
 
@@ -89,3 +93,12 @@ class Bababot(discord.Client):
             await message.channel \
                          .send('I won\'t allow you children to resort to'
                                ' violence. You need to behave!')
+            
+        if ('!sus' in message.content.lower()):
+            mention = message.content.replace('!sus', '').strip()
+            is_sus = self.sussifier.roll()
+
+            if is_sus:
+                await message.channel.send(f'{mention} was an impostor.')
+            else:
+                await message.channel.send(f'{mention} was not an impostor.')

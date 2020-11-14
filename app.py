@@ -2,10 +2,11 @@ import os
 
 from bababot.bababot import Bababot
 from bababot.jokefetcher import JokeFetcher
+from bababot.sussifier import Sussifier
 
 def main():
-    joke_fetcher = JokeFetcher()
-    bababot = Bababot(joke_fetcher)
+    bababot = Bababot(JokeFetcher(), Sussifier())
+
     key = os.getenv('API_KEY')
     bababot.run(key)
 
