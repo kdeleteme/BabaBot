@@ -43,7 +43,7 @@ class Bababot(discord.Client):
         if (message.content == '!joke'):
             await message.channel.send(await self.joke_fetcher.fetch())
 
-        if (re.search('fortnite', message.content.lower())):
+        if ('fortnite' in message.content.lower()):
             await message.channel \
                     .send('Say Fortnite again son and your dog will be gone.')
 
@@ -98,7 +98,19 @@ class Bababot(discord.Client):
             mention = message.content.replace('!sus', '').strip()
             is_sus = self.sussifier.roll()
 
+            verdict = ''
+            imps_remaining = '2 Impostors remain'
+
             if is_sus:
-                await message.channel.send(f'{mention} was an impostor.')
+                verdict = f'{mention} was An Impostor.'
+                imps_remaining = '1 Impostor remains'
             else:
-                await message.channel.send(f'{mention} was not an impostor.')
+                verdict = f'{mention} was not An Impostor.'
+                imps_remaining = '2 Impostors remain'
+
+            await message.channel.send('. 　　　。　　　　•　 　ﾟ　　。 　　.\n'
+                                       '　　　.　　　 　　.　　　　　。　　 。　. 　\n'
+                                       '.　　 。　　　　　 ඞ 。 . 　　 • 　　　　•\n'
+                                       f'　　ﾟ　　 {verdict}　 。　.\n'
+                                       f'　　\'　　　 {imps_remaining} 　 　　。\n'
+                                       '　　ﾟ　　　.　　　. ,　　　　.　 .')
