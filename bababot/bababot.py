@@ -1,19 +1,16 @@
 import discord
 
 from bababot.jokefetcher import JokeFetcher
-from bababot.sussifier import Sussifier
 
 
 class Bababot(discord.Client):
     """Your Asian dad bot"""
 
     joke_fetcher: JokeFetcher
-    sussifier: Sussifier
 
-    def __init__(self, joke_fetcher: JokeFetcher, sussifier: Sussifier):
+    def __init__(self, joke_fetcher: JokeFetcher):
         super().__init__()
         self.joke_fetcher = joke_fetcher
-        self.sussifier = sussifier
 
     async def print_commands(self, message) -> None:
         await message.channel.send(
