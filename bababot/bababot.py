@@ -24,7 +24,6 @@ class Bababot(discord.Client):
             '!joke             Listen to Baba\'s joke\n'
             '!hot              Ask Baba to say "That\'s hot!"\n'
             '!commands         Show this list of commands\n'
-            '!sus @username    Sus a crewmate\n'
             '!slap @username   Slap a fellow```'
         )
 
@@ -93,24 +92,3 @@ class Bababot(discord.Client):
             await message.channel \
                          .send('I won\'t allow you children to resort to'
                                ' violence. You need to behave!')
-            
-        if ('!sus' in message.content.lower()):
-            mention = message.content.replace('!sus', '').strip()
-            is_sus = self.sussifier.roll()
-
-            verdict = ''
-            imps_remaining = '2 Impostors remain'
-
-            if is_sus:
-                verdict = f'{mention} was An Impostor.'
-                imps_remaining = '1 Impostor remains'
-            else:
-                verdict = f'{mention} was not An Impostor.'
-                imps_remaining = '2 Impostors remain'
-
-            await message.channel.send('. 　　　。　　　　•　 　ﾟ　　。 　　.\n'
-                                       '　　　.　　　 　　.　　　　　。　　 。　. 　\n'
-                                       '.　　 。　　　　　 ඞ 。 . 　　 • 　　　　•\n'
-                                       f'　　ﾟ　　 {verdict}　 。　.\n'
-                                       f'　　\'　　　 {imps_remaining} 　 　　。\n'
-                                       '　　ﾟ　　　.　　　. ,　　　　.　 .')
