@@ -14,14 +14,14 @@ class Bababot(Client):
 
     async def print_commands(self, message) -> None:
         await message.channel.send(
-            '```Your Baba understands the following commands:\n\n'
+            '```Politely ask Baba the following:\n\n'
 
-            '!info             Get to know your Baba\n'
+            '?info             Get to know your Baba\n'
             '!ping             Ping your Baba\n'
-            '!joke             Listen to Baba\'s joke\n'
-            '!hot              Ask Baba to say "That\'s hot!"\n'
-            '!commands         Show this list of commands\n'
-            '!slap @username   Slap a fellow```'
+            '?joke             Listen to Baba joke\n'
+            '?hot              Ask Baba to say "That\'s hot!"\n'
+            '?commands         Show this list of commands\n'
+            '?slap @username   Ask Baba to slap the person mentioned```'
         )
 
     async def on_ready(self) -> None:
@@ -36,20 +36,20 @@ class Bababot(Client):
         if (message.content == '!ping'):
             await message.channel.send('pong!')
 
-        if (message.content == '!joke'):
+        if (message.content == '?joke'):
             await message.channel.send(await self.joke_fetcher.fetch())
 
         if ('fortnite' in message.content.lower()):
             await message.channel \
                     .send('Say Fortnite again son and your dog will be gone.')
 
-        if (message.content == '!hot'):
+        if (message.content == '?hot'):
             await message.channel.send('That\'s hot!')
 
-        if (message.content == '!commands'):
+        if (message.content == '?commands'):
             await self.print_commands(message)
 
-        if (message.content == '!info'):
+        if (message.content == '?info'):
             await message.channel.send(
                 'I am your Baba. '
                 'You will listen to me. '
@@ -85,7 +85,7 @@ class Bababot(Client):
                 noun = ' '.join(noun_array)
                 await message.channel.send(f'Haro {noun}, I\'m Baba.')
                     
-        if ('!slap' in message.content.lower()):
+        if ('?slap' in message.content.lower()):
             await message.channel \
                          .send('I won\'t allow you children to resort to'
                                ' violence. You need to behave!')
