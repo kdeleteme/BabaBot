@@ -3,8 +3,8 @@ import discord
 from bababot.jokefetcher import JokeFetcher
 
 
-class Bababot(discord.Client):
-    """Your Asian dad bot"""
+class Bababot(Client):
+    """Your Strict Asian dad bot"""
 
     joke_fetcher: JokeFetcher
 
