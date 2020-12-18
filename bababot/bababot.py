@@ -1,4 +1,4 @@
-import discord
+from discord import Client, Intents
 
 from bababot.jokefetcher import JokeFetcher
 
@@ -8,8 +8,8 @@ class Bababot(Client):
 
     joke_fetcher: JokeFetcher
 
-    def __init__(self, joke_fetcher: JokeFetcher):
-        super().__init__()
+    def __init__(self, joke_fetcher: JokeFetcher, intents: Intents):
+        super().__init__(intents = intents)
         self.joke_fetcher = joke_fetcher
 
     async def print_commands(self, message) -> None:
