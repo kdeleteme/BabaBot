@@ -25,7 +25,10 @@ class Bababot(Client):
         )
 
     async def on_ready(self) -> None:
-        print('Logged on as {0}!'.format(self.user))
+        print(f"Logged on as {self.user}!")
+
+    async def on_member_join(self, member) -> None:
+        print(f"{member.nick}")
 
     async def on_message(self, message) -> None:
         # print('{0.author}: {0.content}'.format(message))
