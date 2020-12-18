@@ -1,15 +1,11 @@
 import os
 
-from discord import Intents
-
 from bababot.bababot import Bababot
 from bababot.jokefetcher import JokeFetcher
 
 
 def main():
-    intents = Intents.default()
-    intents.members = True
-    bababot = Bababot(JokeFetcher(), intents)
+    bababot = Bababot(JokeFetcher())
 
     key = os.getenv('API_KEY')
     bababot.run(key)

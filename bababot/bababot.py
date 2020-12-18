@@ -1,4 +1,4 @@
-from discord import Client, Intents
+from discord import Client
 
 from bababot.jokefetcher import JokeFetcher
 
@@ -8,8 +8,8 @@ class Bababot(Client):
 
     joke_fetcher: JokeFetcher
 
-    def __init__(self, joke_fetcher: JokeFetcher, intents: Intents):
-        super().__init__(intents = intents)
+    def __init__(self, joke_fetcher: JokeFetcher):
+        super().__init__()
         self.joke_fetcher = joke_fetcher
 
     async def print_commands(self, message) -> None:
@@ -26,9 +26,6 @@ class Bababot(Client):
 
     async def on_ready(self) -> None:
         print(f"Logged on as {self.user}!")
-
-    async def on_member_join(self, member) -> None:
-        print(f"{member.nick}")
 
     async def on_message(self, message) -> None:
         # print('{0.author}: {0.content}'.format(message))
