@@ -39,7 +39,9 @@ class CommandCog(Cog, name = 'Commands'):
             'Disappoint me and I will disown you.\n\n'
             '*Send **?help** in chat to see how to interact with me.*\n\n'
             'I was built by kdeleteme. You can find my brain at'
-            ' https://gitlab.com/kdeleteme/bababot.'
+            ' https://gitlab.com/kdeleteme/bababot.\n\n'
+            'Donate to support my development at '
+            'https://liberapay.com/kdeleteme/donate.'
         )
             
     @command(name = 'slap',
