@@ -37,15 +37,6 @@ class Channel(Base):
     guild_id = Column(Integer, ForeignKey('guild.id'))
     
     def __repr__(self) -> str:
-        if self.channel_type is ChannelType.TEXT:
-            channel_type = 'text'
-        elif self.channel_type is ChannelType.VOICE:
-            channel_type = 'voice'
-        elif self.channel_type is ChannelType.CATEGORY:
-            channel_type = 'category'
-        else:
-            channel_type = 'undefined'
-
-        return f"<Channel(name='{self.name}', channel_type='{channel_type}')>"
+        return f"<Channel(name='{self.name}', channel_type='{self.channel_type.name}')>"
             
             
