@@ -16,6 +16,8 @@
 # along with BabaBot.  If not, see <https://www.gnu.org/licenses/>.
 
 
+from typing import str
+
 from sqlalchemy import Column, String, Integer
 
 class Member(Base):
@@ -31,3 +33,7 @@ class Member(Base):
     # The last time ?slap was attempted
     last_time_tried_slapping = Column(Integer)
     
+    def __repr__(self) -> str:
+        return f"<Member(username='{self.username}', nick='{self.nick}', " \
+            f"times_tried_slapping='{self.times_tried_slapping}', " \
+            f"last_time_tried_slapping='{self.last_time_tried_slapping}')>"

@@ -16,6 +16,8 @@
 # along with BabaBot.  If not, see <https://www.gnu.org/licenses/>.
 
 
+from typing import str
+
 from sqlalchemy import Column, String, Integer, Table
 from sqlalchemy.orm import relationship
 
@@ -37,3 +39,6 @@ class Guild(Base):
       members = relationship('Member', secondary = member_association,
                              back_populates = 'guilds')
       channels = relationship('Channel')
+
+      def __repr__(self) -> str:
+            return f"<Guild(name='{self.name}')>"
