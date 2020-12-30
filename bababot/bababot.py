@@ -39,7 +39,7 @@ class Bababot(Bot):
         channel = member.guild.system_channel
 
         if channel is not None:
-            await channel.send(f"Welcome to the family {member.mention}! "
+            await channel.send(f"Welcome to the family, {member.mention}! "
                                "Don't disappoint me and you will be fine.")
 
     async def on_ready(self) -> None:
