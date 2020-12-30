@@ -42,11 +42,11 @@ class Bababot(Bot):
             await channel.send(f"Welcome to the family, {member.mention}! "
                                "Don't disappoint me and you will be fine.")
 
-    async def on_ready(self) -> None:
+    async def on_ready(self):
         print(f"Logged on as {self.user}!")
         self.setup()
 
-    async def on_message(self, message) -> None:
+    async def on_message(self, message):
         if (message.author.bot):
             return
 
